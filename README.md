@@ -1,4 +1,4 @@
-# Simple Ability System
+# Advanced Light Detection System
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -321,5 +321,6 @@ Thanks! You can email me at marasciagames@gmail.com and I’ll get that fixed AS
 This tool’s Unity Asset Store page: https://assetstore.unity.com/packages/slug/330808  
 This tool’s parent asset (if you bought this asset from the unity asset store, you should get a discount): https://assetstore.unity.com/packages/slug/325788  
 My Unity Asset Store publisher page: https://assetstore.unity.com/publishers/113743 
+
 
 
