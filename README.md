@@ -4,21 +4,21 @@
 - [Introduction](#introduction)
 - [Setup](#setup)
 - [Lighting-Detection-Methods](#lighting-detection-methods)
- -[Raycasts](#raycasts)
- -[Floor-Render-Texture](#floor-render-texture)
- -[Sky-Render-Texture](#sky-render-texture)
- -[Mixed](#mixed)
+	-[Raycasts](#raycasts)
+	-[Floor-Render-Texture](#floor-render-texture)
+	-[Sky-Render-Texture](#sky-render-texture)
+	-[Mixed](#mixed)
 - [Lighting-System-Customizable-Settings](#lighting-system-customizable-settings)
- -[Raycasts](#raycasts-settings)
- -[Floor-Render-Texture](#floor-render-texture-settings)
- -[Sky-Render-Texture](#sky-render-texture-settings)
- -[Mixed](#mixed-settings)
+	-[Raycasts](#raycasts-settings)
+	-[Floor-Render-Texture](#floor-render-texture-settings)
+	-[Sky-Render-Texture](#sky-render-texture-settings)
+	-[Mixed](#mixed-settings)
 - [Detection-Method-Performance-Breakdown](#detection-method-berformance-breakdown)
- -[General-Performance](#general-performance)
- -[Raycasts-Performance](#Raycasts-performance)
- -[Floor-Render-Texture-Performance)](#floor-render-texture-performance)
- -[Sky-Render-Texture-Performance)](#sky-render-texture-performance))
- -[Mixed-performance)](#mixed-performance))
+	-[General-Performance](#general-performance)
+	-[Raycasts-Performance](#Raycasts-performance)
+	-[Floor-Render-Texture-Performance)](#floor-render-texture-performance)
+	-[Sky-Render-Texture-Performance)](#sky-render-texture-performance))
+	-[Mixed-performance)](#mixed-performance))
 - [FAQ](#frequently-asked-questions)
 
 
@@ -309,3 +309,4 @@ Thanks! You can email me at marasciagames@gmail.com and I’ll get that fixed AS
 This tool’s Unity Asset Store page: https://assetstore.unity.com/packages/slug/330808  
 This tool’s parent asset (if you bought this asset from the unity asset store, you should get a discount): https://assetstore.unity.com/packages/slug/325788  
 My Unity Asset Store publisher page: https://assetstore.unity.com/publishers/113743 
+
