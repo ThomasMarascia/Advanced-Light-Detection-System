@@ -4,22 +4,34 @@
 - [Introduction](#introduction)
 - [Setup](#setup)
 - [Lighting-Detection-Methods](#lighting-detection-methods)
-	-[Raycasts](#raycasts)
-	-[Floor-Render-Texture](#floor-render-texture)
-	-[Sky-Render-Texture](#sky-render-texture)
-	-[Mixed](#mixed)
+	- [Raycasts](#raycasts)
+	- [Floor-Render-Texture](#floor-render-texture)
+	- [Sky-Render-Texture](#sky-render-texture)
+	- [Mixed](#mixed)
 - [Lighting-System-Customizable-Settings](#lighting-system-customizable-settings)
-	-[Raycasts](#raycasts-settings)
-	-[Floor-Render-Texture](#floor-render-texture-settings)
-	-[Sky-Render-Texture](#sky-render-texture-settings)
-	-[Mixed](#mixed-settings)
-- [Detection-Method-Performance-Breakdown](#detection-method-berformance-breakdown)
-	-[General-Performance](#general-performance)
-	-[Raycasts-Performance](#Raycasts-performance)
-	-[Floor-Render-Texture-Performance)](#floor-render-texture-performance)
-	-[Sky-Render-Texture-Performance)](#sky-render-texture-performance))
-	-[Mixed-performance)](#mixed-performance))
-- [FAQ](#frequently-asked-questions)
+	- [Raycasts](#raycasts-settings)
+	- [Floor-Render-Texture](#floor-render-texture-settings)
+	- [Sky-Render-Texture](#sky-render-texture-settings)
+	- [Mixed](#mixed-settings)
+- [Detection-Method-Performance-Breakdown](#detection-method-performance-breakdown)
+	- [General-Performance](#general-performance)
+	- [Raycasts-Performance](#raycasts-performance)
+	- [Floor-Render-Texture-Performance)](#floor-render-texture-performance)
+	- [Sky-Render-Texture-Performance)](#sky-render-texture-performance))
+	- [Mixed-performance)](#mixed-performance))
+- [FAQ](#frequenty-asked-questions)
+	- [Which-detection-method-should-I-use](#which-detection-method-should-i-use)
+	- [I-am-overwhelmed-by-all-the-settings](#i-am-overwhelmed-by-all-the-settings)
+	- [Why-is-the-raycast-method-not-working](#why-is-the-raycast-method-not-working)
+	- [Why-is-the-floor-render-texture-method-not-working](#why-is-the-floor-render-texture-method-not-working)
+	- [How-do-I-set-up-the-floor-render-texture-method](#how-do-i-set-up-the-floor-render-texture-method)
+	- [Why-is-sky-render-texture-method-not-working](#why-is-sky-render-texture-method-not-working)
+	- [Why-is-mixed-method-not-working](#why-is-mixed-method-not-working)
+	- [How-do-I-add-a-new-detection-method](#how-do-i-add-a-new-detection-method)
+	- [I-have-another-question](#i-have-another-question)
+	- [I-found-a-bug](#i-found-a-bug)
+
+- [Links](#links)
 
 
 ## Introduction
@@ -245,7 +257,7 @@ follows:
 As you may have noticed, it is common for the sky render texture step to be completely skipped. That is, by far, the step that impacts performance the most. This means that any time the actor detects enough light from any lights besides the sun, the performance will be about as high as the raycast method’s performance.
 
 ## Frequenty Asked Questions
-### Which detection method should I use? 
+### Which detection method should I use
 This comes down to a lot of factors and I would urge you to read the rest of this readme for more info. Especially the method breakdown section. but as a quick TL; DR: 
 - Pick Raycasts if you have a huge number of detectors (a horde of vampires for example). Doesn’t work with colliders that don’t match the shadow casters! 
 - Pick Floor Render Texture if you don’t mind doing some setup and don’t care about ambient effects like fog and you are confident you made your lighting system consistent for detected areas being consistently lit up. 
@@ -253,22 +265,22 @@ This comes down to a lot of factors and I would urge you to read the rest of thi
 - Pick Mixed if you want the ambient effects and collider workaround that sky render texture has but need other lights to work as well. 
 Don’t forget you can mix and match. If the player is sneaking around a horde of vampires maybe use floor or sky render texture for your player and raycasts for the vampires. 
 
-### I’m overwhelmed by all the settings. Help? 
+### I am overwhelmed by all the settings.
 I know there is a lot of customizability. Luckily the default settings are pretty good. If you don’t know what something does, each setting has a tooltip. If that doesn’t help, refer to the settings section of this readme. If you’re still confused, send me an email. I used an editor script to only display the settings that are used for method you selected. So if you are looking for a setting you saw in here that isn’t in the inspector, chances are you selected the wrong method for that setting to exist. If you’d like to see all settings no matter what, you can do that by deleting the editor script entirely.  
 
-### Why isn’t the Raycast method working? 
+### Why is the Raycast method not working
 - Make sure you have at least 1 raycast point in the raycast points array. 
 - Your directional light should be in the lights to check array in the editor. All others should be added dynamically. 
 - Make sure the direction light cast distance is high enough so rays can hit far away things that block out the sun. 
 - Make sure the light falloff factor isn’t too high. 
 - Make sure to configure the directional, point and spot intensities for detection correctly. 
 
-### Why isn’t the floor render texture method working? 
+### Why is the floor render texture method not working
 - Make sure you have a second camera set to light detection cam. An example of what the camera should look like is in the Light Detection Actor prefab. 
 - Make sure the render size variable isn’t too small or too big. 0.25 is pretty normal for a human sized detector. 
 - Make sure you set up the Floor fully shadowed max and floor fully lit min variables correctly. 
 
-### How do I set up the floor render texture method? 
+### How do I set up the floor render texture method
 The easiest way in my opinion is as follows: 
 1. Turn on the debug setting: Show floor color level. 
 2. Click play and walk to the brightest spot you want to still be considered fully shadowed (you want currentlightlevel == 0). 
@@ -276,21 +288,21 @@ The easiest way in my opinion is as follows:
 4. Walk to the darkest area you want to still be considered fully lit up (you want currentlightlevel == 1). 
 5. Look at the current floor count level variable. This is around what you should set Floor fully Lit Min to for this scene/section.
  
-### Why isn’t sky render texture method working? 
+### Why is sky render texture method not working
 - Make sure you have a second camera set to light detection cam. An example of what the camera should look like is in the Light Detection Actor prefab. 
 - Check to make sure you’ve added your sun (directional light) to the lights to check array. It should be the first and only element if you are using the sky render texture method. 
 - Make sure the render size variable isn’t too small or too big. 0.25 is pretty normal for a human sized detector. 
 - Make sure the direction light cast distance is high enough to see all objects that could block the sun. 
 - Check the intensity of your directional light. Make sure it is high enough.
  
-### Why isn’t mixed method working? 
+### Why is mixed method not working
 Refer to the steps in both the raycast and sky render texture not working sections. Most common one for mixed is that the directional light is not set to the first element of the lights 
 to check array or that there are no transforms in the raycast points array. Why aren’t my lights getting raycasted to? 
 - You probably forgot to add a stealth light component to your light. Make sure the type of stealth light script you add matches the type of light you’re using. StealthLight for directional, StealthPointLight for point lights, and SteathSpotLight for spotlights.  
 - If you want to save some performance from adding a component dynamically, you should give all StealthPointLights a sphere collider and SteathSpotLight a meshcollider.  
 - Make sure spotlights have the colliderConeMesh set to the cone mesh I provided! 
 
-### How do I add a new detection method? 
+### How do I add a new detection method
 There are a few steps to achieve this: 
 1. Make sure whatever you are trying to add isn’t already covered by one of the implemented methods 
 2. If not, add the name of your method to the Light Detection Method enum. 
@@ -299,14 +311,15 @@ There are a few steps to achieve this:
 5. Make your function. If you do any secondary camera rendering, I suggest using async request.  
 6. Good luck! 
 
-### I have another question… 
+### I have another question
 No Problem! Email me your question at marasciagames@gmail.com and I’ll get back to you as fast as I can. 
 
-### I found a bug! 
+### I found a bug
 Thanks! You can email me at marasciagames@gmail.com and I’ll get that fixed ASAP. I usually respond within a day. 
 
-##Links: 
+## Links
 This tool’s Unity Asset Store page: https://assetstore.unity.com/packages/slug/330808  
 This tool’s parent asset (if you bought this asset from the unity asset store, you should get a discount): https://assetstore.unity.com/packages/slug/325788  
 My Unity Asset Store publisher page: https://assetstore.unity.com/publishers/113743 
+
 
